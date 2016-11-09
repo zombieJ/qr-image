@@ -8,6 +8,7 @@ http.createServer(function (req, res) {
     try {
         if(query.size) query.size = Number(query.size);
         if(query.margin) query.margin = Number(query.margin);
+        if(query.mask) query.preferMask = Number(query.mask);
 
         var img = qr.image(text, query);
         res.writeHead(200, {'Content-Type': 'image/png'});
@@ -18,4 +19,4 @@ http.createServer(function (req, res) {
     }
 }).listen(5152);
 
-console.log("Listen: 5152...[text, size, ec_level, parse_url]");
+console.log("Listen: 5152...[text, size, ec_level, parse_url, mask]");
